@@ -1,6 +1,6 @@
 # VPC variables
 vpc_name = "my-vpc"
-vpc_cidr = ""
+vpc_cidr = "172.31.0.0./16"
 region = "us-central1"
 project_id = "my-project"
 

@@ -16,7 +16,7 @@ resource "google_compute_instance" "nginx_core" {
   }
 
   network_interface {
-    network = module.vpc.vpc_self_link
+    network = var.vpc_self_link
   }
 
   tags = ["nginx"]
@@ -27,6 +27,17 @@ resource "google_compute_instance" "nginx_core" {
   }
 
 }
+
+# Instance Group Manager for Nginx Core
+# resource "google_compute_instance_group_manager" "nginx_core" {
+#   name                = "nginx-core-manager"
+#   base_instance_name  = "nginx-core"
+#   zone                = var.nginx_zone
+#   target_size         = 1
+#   version {
+#     instance_template = google_compute_instance_template.nginx_core_template.self_link
+#   }
+# }
 
 # Github instance creation
 resource "google_compute_instance" "github_core" {
@@ -42,8 +53,12 @@ resource "google_compute_instance" "github_core" {
   }
 
   network_interface {
-    network = module.vpc.vpc_self_link
+    network = var.vpc_self_link
   }
+
+  #   network_interface {
+  #   network = var.vpc_self_link
+  # }
 
   tags = ["github"]
 
@@ -85,7 +100,7 @@ disk {
     source      = google_compute_disk.github_core_external_disk.id
   }
   network_interface {
-    network = module.vpc.vpc_self_link
+    network = var.vpc_self_link
   }
 
   tags = ["github"]

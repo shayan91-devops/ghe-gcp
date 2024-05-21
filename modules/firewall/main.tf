@@ -1,7 +1,6 @@
 resource "google_compute_firewall" "allow_world_access" {
   name    = "allow-world-access"
-  network = google_compute_network.vpc.self_link
-
+  network = var.vpc_self_link
   allow {
     protocol = "tcp"
     ports    = ["22", "80", "443", "8443", "122"]

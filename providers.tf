@@ -1,11 +1,11 @@
-# terraform {
-#   required_providers {
-#     google = {
-#       source = "hashicorp/google"
-#       version = "5.25.0"
-#     }
-#   }
-# }
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "5.25.0"
+    }
+  }
+}
 # provider "google" {
 #   project     = var.project_id
 #   region      = var.region
@@ -20,12 +20,12 @@
 
 
 
-terraform {
-  required_version = ">= 0.12"
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 3.0"
-    }
-  }
-}
+# terraform {
+#   required_version = ">= 0.12"
+#   required_providers {
+#     google = {
+#       source  = "hashicorp/google"
+#       version = "~> 3.0"
+#     }
+#   }
+# }

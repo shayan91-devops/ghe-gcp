@@ -10,11 +10,16 @@ module "compute" {
   nginx_image = var.nginx_image
   github_machine_type = var.github_machine_type
   github_image = var.github_image
+
+   // Declare the vpc module within the compute module block
+ vpc_self_link = module.vpc.vpc_self_link
+ depends_on = [module.vpc]
 }
 
 module "loadbalancer" {
   source = "./modules/loadbalancer"
-   ngithub_backend_name = var.nginx_backend_name
+  vpc_self_link = module.vpc.vpc_self_link
+   nginx_backend_name = var.nginx_backend_name
    github_backend_name     = var.github_backend_name
    url_map_name            = var.url_map_name
    path_matcher_name       = var.path_matcher_name
@@ -28,4 +33,6 @@ module "loadbalancer" {
 
 module "firewall" {
   source = "./modules/firewall"
+  vpc_self_link = module.vpc.vpc_self_link
+  # network_self_link = module.vpc.vpc_self_link
 }

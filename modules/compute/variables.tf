@@ -39,3 +39,9 @@ variable "github_zone" {
   type        = string
   default     = "us-central1-b"
 }
+
+variable "vpc_self_link" {
+  description = "Self link of the VPC network"
+  type        = string
+}
+

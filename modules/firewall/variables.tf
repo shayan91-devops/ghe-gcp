@@ -3,3 +3,6 @@ variable "network" {
   default     = "default"
 }
 
+variable "vpc_self_link" {
+  type = string
+}
