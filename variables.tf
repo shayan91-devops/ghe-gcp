@@ -9,6 +9,11 @@ variable "project_id" {
   
 }
 
+# variable "GOOGLE_APPLICATION_CREDENTIALS" {
+#   description = "The app credentails in which to create the resources"
+#   type = string
+# }
+
 variable "vpc_name" {
   description = "The name of the VPC to create"
   type = string

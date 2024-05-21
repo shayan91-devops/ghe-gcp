@@ -1,7 +1,5 @@
 # GCP credentials
 GOOGLE_APPLICATION_CREDENTIALS = "<path_to_your_service_account_key>.json"
-GOOGLE_PROJECT                  = "<your_project_id>"
-GOOGLE_REGION                   = "<your_region>"
 
 # VPC variables
 vpc_name = "my-vpc"
